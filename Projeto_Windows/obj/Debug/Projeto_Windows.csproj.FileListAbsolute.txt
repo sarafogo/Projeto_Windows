@@ -1,0 +1,10 @@
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\bin\Debug\Projeto_Windows.exe.config
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\bin\Debug\Projeto_Windows.exe
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\bin\Debug\Projeto_Windows.pdb
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\obj\Debug\Projeto_Windows.csproj.AssemblyReference.cache
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\obj\Debug\Projeto_Windows.Form1.resources
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\obj\Debug\Projeto_Windows.Properties.Resources.resources
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\obj\Debug\Projeto_Windows.csproj.GenerateResource.cache
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\obj\Debug\Projeto_Windows.csproj.CoreCompileInputs.cache
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\obj\Debug\Projeto_Windows.exe
+C:\Users\a.fontes.da.cunha\source\repos\Projeto_Windows\Projeto_Windows\obj\Debug\Projeto_Windows.pdb
