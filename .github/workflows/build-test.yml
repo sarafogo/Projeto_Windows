@@ -34,11 +34,10 @@ jobs:
          -Dsonar.verbose=true
          -Dsonar.exclusions=**/bin/**/*,**/obj/**/*,**/packages/**/*,**/test/**/*
 
-        # Run tests
+    # Run tests
     - name: Run tests
       run: |
-        & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" `
+        & "${{ env.VSINSTALLDIR }}Common7\IDE\Extensions\TestPlatform\vstest.console.exe" `
         **\bin\Release\*.Tests.dll `
         /Logger:trx
-        if ($?) { echo "Tests passed!" } else { exit 1 }
 
