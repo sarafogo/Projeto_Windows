@@ -23,13 +23,17 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v2
 
-    # # Cache SonarQube Cloud packages
-    # - name: Cache SonarQube Cloud packages
-    #   uses: actions/cache@v4
-    #   with:
-    #     path: ~\sonar\cache
-    #     key: ${{ runner.os }}-sonar
-    #     restore-keys: ${{ runner.os }}-sonar
+    - name: Oficial SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@v5.2.0
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      with:
+        args: >
+         -Dsonar.organization='migracaodotnetforms'
+         -Dsonar.projectKey=${{ github.repository }}
+         -Dsonar.verbose=true
+         -Dsonar.exclusions=**/bin/**/*,**/obj/**/*,**/packages/**/*,**/test/**/*
+
 
     # # Cache SonarQube Cloud scanner
     # - name: Cache SonarQube Cloud scanner
