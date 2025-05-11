@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Projeto_WindowsTeste
-        path: Projeto_Windows\Projeto_WindowsTeste\bin\Release
+        path: Projeto_Windows\Projeto_Windows\bin\Release
 
     # Run tests
     - name: Run tests
