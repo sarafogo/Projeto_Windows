@@ -61,4 +61,18 @@ jobs:
         name: Projeto_WindowsTeste
         path: Projeto_Windows\bin\Release
 
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.0
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload release asset
+      uses: softprops/action-gh-release@v1
+      with:
+       files: Projeto_Windows/bin/Release/Projeto_Windows.exe
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
