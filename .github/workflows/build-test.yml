@@ -34,6 +34,10 @@ jobs:
          -Dsonar.verbose=true
          -Dsonar.exclusions=**/bin/**/*,**/obj/**/*,**/packages/**/*,**/test/**/*
 
+    # Build the project
+    - name: Build solution
+      run: msbuild Projeto_Windows.sln /p:Configuration=Release
+
     # Run tests
     - name: Run tests
       run: |
