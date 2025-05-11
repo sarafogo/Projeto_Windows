@@ -50,11 +50,15 @@ jobs:
         }
       shell: pwsh
 
+    - name: Verificar arquivos gerados
+      run: dir Projeto_Windows\bin\Release /s
+      shell: cmd
+
        # Run Save Artifacts
     - name: Save Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: TesteProjeto_Windows
-        path: Projeto_Windows\Projeto_Windows\bin\Release
+        name: Projeto_WindowsTeste
+        path: Projeto_Windows\bin\Release
 
 
