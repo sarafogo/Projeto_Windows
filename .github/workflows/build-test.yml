@@ -30,7 +30,7 @@ jobs:
       with:
         args: >
          -Dsonar.organization=${{ github.repository_owner }}
-         -Dsonar.projectKey=${{ github.event.organization.name }}
+         -Dsonar.projectKey='migracaodotnetforms'
          -Dsonar.verbose=true
          -Dsonar.exclusions=**/bin/**/*,**/obj/**/*,**/packages/**/*,**/test/**/*
 
