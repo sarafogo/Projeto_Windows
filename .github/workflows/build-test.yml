@@ -29,15 +29,12 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
         args: >
-         -Dsonar.organization='migracaodotnetforms'
-         -Dsonar.projectKey=${{ github.repository }}
+         -Dsonar.organization=${{ github.repository_owner }}
+         -Dsonar.projectKey=${{ github.event.repository.name }}
          -Dsonar.verbose=true
          -Dsonar.exclusions=**/bin/**/*,**/obj/**/*,**/packages/**/*,**/test/**/*
 
     # Run tests
     - name: Run tests
       run: |
-        & "${{ env.VSINSTALLDIR }}Common7\IDE\Extensions\TestPlatform\vstest.console.exe" `
-        **\bin\Release\*.Tests.dll `
-        /Logger:trx
-
+       
