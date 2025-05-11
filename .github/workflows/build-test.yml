@@ -38,6 +38,13 @@ jobs:
     - name: Build solution
       run: msbuild Projeto_Windows.sln /p:Configuration=Release
 
+    # Run Save Artifacts
+    - name: Save Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Projeto_WindowsTeste
+        path: Projeto_Windows\Projeto_WindowsTeste\bin\Release
+
     # Run tests
     - name: Run tests
       run: |
