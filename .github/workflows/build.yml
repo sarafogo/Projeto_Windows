@@ -14,3 +14,4 @@ jobs:
       build_configuration: 'Release'
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
