@@ -1,0 +1,16 @@
+name: Caller Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  call-reusable:
+    uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-build.yml@main
+    with:
+      SOLUTION_NAME: 'Projeto_Windows.sln'
+      BUILD_CONFIGURATION: 'Release'
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

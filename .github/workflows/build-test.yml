@@ -1,79 +1,79 @@
-name: Build 
-on:
-  push:
-    branches:
-      - main 
+# name: Build 
+# on:
+#   push:
+#     branches:
+#       - main 
   
-  workflow_dispatch:
+#   workflow_dispatch:
 
-jobs:
-  build:
-    runs-on: windows-latest
+# jobs:
+#   build:
+#     runs-on: windows-latest
 
-    steps:
-    # Checkout the code from the repository
-    - name: Checkout code
-      uses: actions/checkout@v4
+#     steps:
+#     # Checkout the code from the repository
+#     - name: Checkout code
+#       uses: actions/checkout@v4
 
-    # Setup MSBuild
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
+#     # Setup MSBuild
+#     - name: Setup MSBuild
+#       uses: microsoft/setup-msbuild@v2
 
-    # Setup NuGet
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v2
+#     # Setup NuGet
+#     - name: Setup NuGet
+#       uses: NuGet/setup-nuget@v2
 
-    - name: Oficial SonarQube Scan
-      uses: sonarsource/sonarqube-scan-action@v5.2.0
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with:
-        args: >
-         -Dsonar.organization='migracaodotnetforms'
-         -Dsonar.projectKey=${{ github.event.repository.name }}
-         -Dsonar.verbose=true
-         -Dsonar.exclusions=**/bin/**/*,**/obj/**/*,**/packages/**/*,**/test/**/*
+#     - name: Oficial SonarQube Scan
+#       uses: sonarsource/sonarqube-scan-action@v5.2.0
+#       env:
+#         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#       with:
+#         args: >
+#          -Dsonar.organization='migracaodotnetforms'
+#          -Dsonar.projectKey=${{ github.event.repository.name }}
+#          -Dsonar.verbose=true
+#          -Dsonar.exclusions=**/bin/**/*,**/obj/**/*,**/packages/**/*,**/test/**/*
 
-    # Build the project
-    - name: Build solution
-      run: msbuild Projeto_Windows.sln /p:Configuration=Release
-      continue-on-error: false
+#     # Build the project
+#     - name: Build solution
+#       run: msbuild Projeto_Windows.sln /p:Configuration=Release
+#       continue-on-error: false
 
-    # Run tests
-    - name: Run tests
-      run: |
-        $dlls = Get-ChildItem -Path "Projeto_WindowsTeste\bin\Debug" -Filter "*.Tests.dll"
-        foreach ($dll in $dlls) {
-        & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" `
-          $dll.FullName `
-          /Logger:trx
-        }
-      shell: pwsh
+#     # Run tests
+#     - name: Run tests
+#       run: |
+#         $dlls = Get-ChildItem -Path "Projeto_WindowsTeste\bin\Debug" -Filter "*.Tests.dll"
+#         foreach ($dll in $dlls) {
+#         & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" `
+#           $dll.FullName `
+#           /Logger:trx
+#         }
+#       shell: pwsh
 
-    - name: Verificar arquivos gerados
-      run: dir Projeto_Windows\bin\Release /s
-      shell: cmd
+#     - name: Verificar arquivos gerados
+#       run: dir Projeto_Windows\bin\Release /s
+#       shell: cmd
 
-       # Run Save Artifacts
-    - name: Save Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: Projeto_WindowsTeste
-        path: Projeto_Windows\bin\Release
+#        # Run Save Artifacts
+#     - name: Save Artifacts
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: Projeto_WindowsTeste
+#         path: Projeto_Windows\bin\Release
 
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v1.0.0
-      env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     - name: Create GitHub Release
+#       uses: softprops/action-gh-release@v1
+#       with:
+#         tag_name: v1.0.0
+#       env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload release asset
-      uses: softprops/action-gh-release@v1
-      with:
-       tag_name: v1.0.0
-       files: Projeto_Windows/bin/Release/Projeto_Windows.exe
-      env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     - name: Upload release asset
+#       uses: softprops/action-gh-release@v1
+#       with:
+#        tag_name: v1.0.0
+#        files: Projeto_Windows/bin/Release/Projeto_Windows.exe
+#       env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
