@@ -6,12 +6,22 @@ on:
       - main
   workflow_dispatch:
 
-jobs:
-  call-reusable:
+ jobs:
+#1: Build 
+build: 
     uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-build.yml@main
     with:
-      solution_name: 'Projeto_Windows.sln'
-      build_configuration: 'Release'
+       solution_name: 'Projeto_Windows.sln'
+       build_configuration: 'Release'
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      
+
+#2: Test
+test:
+    needs: build
+    uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-test.yml@main
+    with:
+        test_path: 'Projeto_WindowsTeste\bin\Debug'
+        solution_name: 'Projeto_Windows.sln'
+        build_configuration: 'Release
+
