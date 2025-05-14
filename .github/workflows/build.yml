@@ -26,11 +26,11 @@ jobs:
 
   #3: deploy
   deploy:
-        needs: test
-        uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/release-deploy.yml@main
+    needs: test
+    uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/release-deploy.yml@main
     with:
-        build_configuration: 'Release'
-        test_path: './Projeto_WindowsTeste/Projeto_WindowsTeste.csproj'
-        exe_path: './Projeto_Windows/bin/Release/Projeto_Windows.exe'
+      solution_name: 'Projeto_Windows.sln'
+      test_path: './Projeto_WindowsTeste/Projeto_WindowsTeste.csproj'
+      exe_path: './Projeto_Windows/bin/Release/Projeto_Windows.exe'
     secrets:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
