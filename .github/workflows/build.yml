@@ -10,7 +10,7 @@ jobs:
   call-reusable:
     uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-build.yml@main
     with:
-      SOLUTION_NAME: 'Projeto_Windows.sln'
-      BUILD_CONFIGURATION: 'Release'
+      solution_name: 'Projeto_Windows.sln'
+      build_configuration: 'Release'
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
