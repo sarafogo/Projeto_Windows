@@ -1,5 +1,3 @@
-name: Caller Workflow w
-
 on:
   push:
     branches:
