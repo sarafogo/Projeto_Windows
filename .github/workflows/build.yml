@@ -30,5 +30,3 @@ jobs:
       solution_name: 'Projeto_Windows.sln'
       test_path: './Projeto_WindowsTeste/Projeto_WindowsTeste.csproj'
       exe_path: './Projeto_Windows/bin/Release/Projeto_Windows.exe'
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
