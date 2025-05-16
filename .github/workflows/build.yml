@@ -10,6 +10,7 @@ jobs:
     uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-build.yml@main
     with:
       solution_name: 'Projeto_Windows.sln'
+      test_path: './Projeto_Windows.Tests/Projeto_Windows.Tests.csproj'
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       
