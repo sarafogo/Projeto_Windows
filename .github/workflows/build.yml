@@ -22,5 +22,4 @@ jobs:
     uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/release-deploy.yml@main
     with:
       solution_name: 'Projeto_Windows.sln'
-      test_path: './Projeto_WindowsTeste/Projeto_WindowsTeste.csproj'
       exe_path: './Projeto_Windows/bin/Release/Projeto_Windows.exe'
