@@ -8,9 +8,6 @@ jobs:
   # 1: Build - tests
   build:
     uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-build.yml@main
-    with:
-      solution_name: 'Projeto_Windows.sln'
-      test_path: './Projeto_Windows.Tests/Projeto_Windows.Tests.csproj'
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       
@@ -20,5 +17,4 @@ jobs:
     needs: build
     uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/release-deploy.yml@main
     with:
-      solution_name: 'Projeto_Windows.sln'
       exe_path: './Projeto_Windows/bin/Release/Projeto_Windows.exe'
