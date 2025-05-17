@@ -18,3 +18,5 @@ jobs:
   deploy:
     needs: build
     uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/release-deploy.yml@main
+    with:
+      build_configuration: Release
