@@ -7,15 +7,14 @@ on:
 jobs:
   # 1: Build - tests
   build:
-    uses: sarafogo/pipeline_templates/.github/workflows/build.yml@main
+    uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-build.yml@main
     with:
-     enableSonar: false
-    secrets: inherit
-
+     build_configuration: Release
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       
 
   #3: deploy
   deploy:
     needs: build
-    uses: sarafogo/pipeline_templates/.github/workflows/deploy-app.yml@main
-    
+    uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/release-deploy.yml@main
