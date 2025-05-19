@@ -17,4 +17,5 @@ jobs:
   #3: deploy
   deploy:
     needs: build
-    uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/release-deploy.yml@main
+    uses: sarafogo/pipeline_templates/.github/workflows/deploy-app.yml@main
+    
