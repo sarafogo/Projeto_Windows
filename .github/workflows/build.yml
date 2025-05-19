@@ -8,7 +8,7 @@ jobs:
   # 1: Build - tests
   build:
     uses: sarafogo/pipeline_templates/.github/workflows/build.yml@main
-  secrets: inherit
+    secrets: inherit
       
 
   #3: deploy
