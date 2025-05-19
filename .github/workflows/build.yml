@@ -3,6 +3,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   # 1: Build - tests
