@@ -12,7 +12,7 @@ jobs:
   build:
     uses: sarafogo/pipeline_templates/.github/workflows/build.yml@main
     with:
-      secrets: ${{ secrets.SONAR_TOKEN }}
+      secrets: inherit
       
 
   #3: deploy
