@@ -7,7 +7,9 @@ on:
 jobs:
   # 1: Build - tests
   build:
-    uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-build.yml@main
+    #uses: MigracaoDotNetForms/ci-cd-pipelines/.github/workflows/reusable-build.yml@main
+    uses: sarafogo/pipeline_templates/.github/workflows/build.yml@main
+    
     with:
      build_configuration: Release
     secrets:
