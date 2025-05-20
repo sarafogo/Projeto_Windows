@@ -11,14 +11,12 @@ jobs:
   # 1: Build - tests
   build:
     uses: sarafogo/pipeline_templates/.github/workflows/build.yml@main
-    with:
-      secrets: inherit
+    secrets: inherit
       
 
   #3: deploy
   deploy:
     needs: build
     uses: sarafogo/pipeline_templates/.github/workflows/deploy-app.yml@main
-    with:
-      secrets: inherit
+    secrets: inherit
  
